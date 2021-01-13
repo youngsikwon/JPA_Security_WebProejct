@@ -1,1 +1,0 @@
-<%@ page language="java" contentType="text / html; charset = utf-8"         pageEncoding="utf-8" %><br/><div class="jumbotron text-center" style="margin-bottom:0">    <p>Create by Zero</p>    <p>010-7777-8888</p>    <p>서울특별시 구로구</p></div></body></html>

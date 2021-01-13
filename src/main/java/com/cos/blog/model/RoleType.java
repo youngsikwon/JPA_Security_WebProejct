@@ -1,1 +1,0 @@
-package com.cos.blog.model;public enum  RoleType {   USER, ADMIN // Enum은 데이터 도메인을 만들때 사용한다.}
