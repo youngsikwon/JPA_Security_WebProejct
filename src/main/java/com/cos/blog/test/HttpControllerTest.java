@@ -12,7 +12,7 @@ public class HttpControllerTest {
 
     private static final String TAG = "HttpControllerTest ";
 
-    @GetMapping("/http/lombok")
+    @GetMapping("/blog/http/lombok")
     public String lombokTest(){
         Member m = new Member(1, "Sal", "1234", "email");
         System.out.println(TAG+"getter :" + m.getId());
