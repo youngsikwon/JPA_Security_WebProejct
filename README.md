@@ -11,3 +11,6 @@
  
  > o.s.b.d.LoggingFailureAnalysisReporter : 해결 방법 resources 의 application.properties에 다음 문장 추가
   + spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  
+ >  JPA - GenerationTarget encountered exception accepting command : Error executing DDL 
+   + application.yml generate-ddl: true로 변경하면 정상적으로 빌드가 완료 된다.
