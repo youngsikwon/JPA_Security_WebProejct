@@ -27,10 +27,10 @@ public class User {
     @Column(nullable = false, length = 100) // hash 값으로 인해 length가 높아야 함.
     private String password;
 
-    @Column(nullable = false, length = 5)
+    @Column(nullable = false, length = 50)
     private String email;
 
-    @ColumnDefault("'user")
+    @ColumnDefault("'User'")
     private String role; // 회원 권한
 
     @CreationTimestamp
