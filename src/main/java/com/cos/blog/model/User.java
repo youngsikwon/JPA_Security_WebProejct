@@ -4,7 +4,6 @@ package com.cos.blog.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -30,8 +29,9 @@ public class User {
     @Column(nullable = false, length = 50)
     private String email;
 
-    @ColumnDefault("'User'")
-    private String role; // 회원 권한
+//    @ColumnDefault("user")
+    @Enumerated(EnumType.STRING)
+    private RoleType role; // 회원 권한, ADMIN, USER
 
     @CreationTimestamp
     private Timestamp createDate;

@@ -22,7 +22,7 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: create # 최초로 create를 사용 하고, 나머지는 update로 바꾼다.
+      ddl-auto: update # 최초로 create를 사용 하고, 나머지는 update로 바꾼다.
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       use-new-id-generator-mappings: false
