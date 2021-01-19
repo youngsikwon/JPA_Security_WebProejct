@@ -21,16 +21,30 @@ public class DummyControllerTest {
     private UserRepository userRepository;
 
 
-    @Transactional
+    @DeleteMapping("/dummy/user/{id}")
+    public String delete(@PathVariable int id){
+        try {
+            userRepository.deleteById(id);
+        }catch (Exception e){
+            return "삭제에 실패 하였습니다. 해당 id를 찾을 수 없습니다." + e.toString();
+        }
+        return  "식제가 되었습니다 : " + id;
+
+    }
+
+
+    @Transactional // 함수 종료시 자동 커밋.
     @PutMapping("/dummy/user/{id}")
     public User updateUser(@PathVariable int id, @RequestBody User requestUser){
         System.out.println("id :"+ id);
         System.out.println("password : " + requestUser.getPassword());
-        System.out.println("email : "+ requestUser.getEmail());
+        System.out.println("email : " + requestUser.getEmail());
 
         User user = userRepository.findById(id).orElseThrow(()->{
            return new IllegalArgumentException("수정에 실패 하였습니다.");
         });
+
+
         user.setPassword(requestUser.getPassword());
         user.setEmail(requestUser.getEmail());
 
@@ -40,9 +54,9 @@ public class DummyControllerTest {
 
 
 
-        return null;
-    }
+        return user; // 더티 체킹
 
+    }
     @GetMapping("/dummy/users")
     public List<User> list(){
         return userRepository.findAll();
