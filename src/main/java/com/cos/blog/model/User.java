@@ -20,7 +20,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto_increment
     private int id;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 30, unique = true) // unique : 중복 x
     private String username;
 
     @Column(nullable = false, length = 100) // hash 값으로 인해 length가 높아야 함.
