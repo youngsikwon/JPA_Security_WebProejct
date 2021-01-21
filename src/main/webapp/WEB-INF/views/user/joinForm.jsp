@@ -19,7 +19,7 @@
         </div>
 
     </form>
-    <button id="btn_save" class="btn btn-primary">등록</button>
+    <button id="btn-save" class="btn btn-primary">등록</button>
 </div>
 <script src="/blog/js/user/user.js"></script>
 <%@ include file="../layout/footer.jsp"%>
