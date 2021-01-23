@@ -2,6 +2,7 @@
 
  - Spring boot 기초 튜토리얼 교육용으로 만들고 있습니다.
   - Spring JPA & Security 기반으로 만드는 Blog
+  - 작업을 하면서 에러 뜨는 현상 또한 공유 할 것입니다.
 
 
 ----
