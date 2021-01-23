@@ -25,8 +25,22 @@ public class UserApiController {
         System.out.println("UserApiController : save 호출");
         user.setRole(RoleType.USER);
         int result = userService.join(user);
-
     return new ResponseDto<Integer>(HttpStatus.OK.value(), 1); // javaObject를 json으로 변환 리턴(JACKSON)
     }
+
+    @PostMapping("/api/user/login")
+    public ResponseDto<Integer> login(@RequestBody User user){
+        System.out.println("로그인이 성공 하였습니다.");
+       User principal =  userService.login(user); // principal (접근주체)
+
+        return new ResponseDto<Integer>(HttpStatus.OK.value(), 1); // javaObject를 json으로 변환 리턴(JACKSON)
+    }
+
+
+
+
+
+
+
 
 }
