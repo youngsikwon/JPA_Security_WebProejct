@@ -8,8 +8,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class BoardController {
 
 
+
+
+
     @GetMapping({"","/"})
     public String index(){
         return "Index";
+    }
+
+    //User 권한이 필요
+    @GetMapping("/board/saveForm")
+    public String saveForm(){
+        return "board/saveForm";
     }
 }
