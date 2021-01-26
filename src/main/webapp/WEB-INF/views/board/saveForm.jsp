@@ -6,18 +6,23 @@
 <div class="container">
     <form>
         <div class="form-group">
-            <label for="title">titile</label>
-            <input type="text"  class="form-control" placeholder="ENTER title" id="username">
+            <label for="title">Titme</label>
+            <input type="text"  class="form-control " placeholder="ENTER title" id="title">
         </div>
         <div class="form-group">
-            <label for="content">content</label>
-            <textarea class="form-control" rows="5" id="content"></textarea>
+            <label for="content">Content</label>
+            <textarea class="form-control summernote" rows="5" id="content"></textarea>
         </div>
-
-
-        <button id="btn-save" class="btn btn-primary">등록</button>
     </form>
+    <button id="btn-save" class="btn btn-primary">등록</button>
 </div>
 
+<script>
+    $('.summernote').summernote({
+        tabsize: 2,
+        height: 300
+    });
+</script>
+<script src="/js/user/board.js"></script>
 <%@ include file="../layout/footer.jsp"%>
 <br/>
