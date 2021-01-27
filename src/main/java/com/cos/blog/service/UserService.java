@@ -1,38 +1,38 @@
 package com.cos.blog.service;
 
-
-import com.cos.blog.model.RoleType;
-import com.cos.blog.model.User;
-import com.cos.blog.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.cos.blog.model.RoleType;
+import com.cos.blog.model.User;
+import com.cos.blog.repository.UserRepository;
 
-//spring이 컴포넌트 스캔을 통해서 bean에 등록 해줌 IoC를 해준다
+// 스프링이 컴포넌트 스캔을 통해서 Bean에 등록을 해줌. IoC를 해준다.
 @Service
 public class UserService {
 
+	@Autowired
+	private UserRepository userRepository;
 
-    @Autowired
-    private UserRepository userRepository;
+	@Autowired
+	private BCryptPasswordEncoder encoder;
 
-    @Autowired
-    private BCryptPasswordEncoder encoder;
 
-    @Transactional
-    public void join(User user) {
-        String rawPassword = user.getPassword(); // 원문
-        String encPassword =  encoder.encode(rawPassword); // 해쉬암호
-        user.setPassword(encPassword);
-        user.setRole(RoleType.USER);
-        userRepository.save(user);
+	@Transactional
+	public int 회원가입(User user) {
+		String rawPassword = user.getPassword(); // 1234 원문
+		String encPassword = encoder.encode(rawPassword); // 해쉬
+		user.setPassword(encPassword);
+		user.setRole(RoleType.USER);
+		try {
+			userRepository.save(user);
+			return 1;
+		} catch (Exception e) {
+			return -1;
+		}
+		
+	}
+
 }
-
-
-}
-//    @Transactional(readOnly = true) // select할 떄 트랜잭션 시작, 해당 서비스 종료시에 트랜잭션 종료(정합성)
-//    public User login(User user){
-//        return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
-//}
