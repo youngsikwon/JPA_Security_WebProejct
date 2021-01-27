@@ -6,9 +6,10 @@
 <div class="container">
     <form action="/auth/loginProc" method="post">
         <div class="form-group">
-            <label for="username">username</label>
-            <input type="username" name="username" class="form-control" placeholder="ENTER username" id="username">
+            <label for="username">Username</label>
+            <input type="text" name="username" class="form-control" placeholder="Enter username" id="username">
         </div>
+
         <div class="form-group">
             <label for="password">Password</label>
             <input type="password" name="password" class="form-control" placeholder="Enter password" id="password">
