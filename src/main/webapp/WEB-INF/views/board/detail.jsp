@@ -4,9 +4,19 @@
 <%@ include file="../layout/header.jsp"%>
 
 <div class="container">
-    <button class="btn btn-waring">수정</button>
-    <button class="btn btn-danger">삭제</button>
-        <div class="form-group">
+    <button class="btn btn-secondary" onclick="history.back()">돌아가기</button>
+    <button id="btn-update" class="btn btn-warning">수정</button>
+    <c:if test="${board.user.id == principal.user.id}">
+    <button id="btn-delete" class="btn btn-danger">삭제</button>
+    </c:if>
+    <br>    <br/>
+
+    <div>
+        번호 : <span id="id">${board.id}</span>
+        작성자 : <span><i>${board.user.username}</i></span>
+    </div>
+    <br>    <br/>
+        <div>
             <h3>${board.title}</h3>
         </div>
         <div class="form-group">

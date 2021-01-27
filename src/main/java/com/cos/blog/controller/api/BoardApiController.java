@@ -20,9 +20,12 @@ public class BoardApiController {
 		boardService.글쓰기(board, principal.getUser());
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1); 
 	}
-	
 
-
+	@DeleteMapping("/api/board/{id}")
+	public ResponseDto<Integer> deleteById(@PathVariable int id){
+		boardService.글삭제(id);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+	}
 
 }
 
