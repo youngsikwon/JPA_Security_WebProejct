@@ -20,6 +20,7 @@ public class UserService {
 	private BCryptPasswordEncoder encoder;
 
 
+
 	@Transactional
 	public int 회원가입(User user) {
 		String rawPassword = user.getPassword(); // 1234 원문
