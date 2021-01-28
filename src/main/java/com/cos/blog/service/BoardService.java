@@ -45,7 +45,7 @@ public class BoardService {
 	}
 
 	@Transactional
-	public void 글수정(int id, Board requestBoard) {
+	public void 글수정하기(int id, Board requestBoard) {
 		Board board = boardRepository.findById(id)
 				.orElseThrow(()->{
 					return new IllegalArgumentException("글 찾기 실패 : 아이디를 찾을 수 없습니다.");

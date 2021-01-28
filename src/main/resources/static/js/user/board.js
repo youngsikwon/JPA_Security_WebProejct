@@ -49,29 +49,26 @@ let index = {
 
     },
     update: function(){
-        //alert('user의 save함수 호출됨');
         let id = $("#id").val();
+
         let data = {
-                title: $("#title").val(),
-                content: $("#content").val()
+            title: $("#title").val(),
+            content: $("#content").val()
         };
+
         $.ajax({
-            type:"PUT",
+            type: "PUT",
             url: "/api/board/"+id,
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             dataType: "json"
         }).done(function(resp){
-                alert("글 수정 완료");
-                location.href = "/";
+            alert("글수정이 완료되었습니다.");
+            location.href = "/";
         }).fail(function(error){
-            console.log(error);
-            alert("증상이 뭐야?"+ error);
             alert(JSON.stringify(error));
         });
-
     },
-
 }
 
 index.init();
