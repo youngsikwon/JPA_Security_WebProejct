@@ -23,7 +23,7 @@ public class User {
     @Column(nullable = false, length = 30, unique = true) // unique : 중복 x
     private String username;
 
-    @Column(nullable = false, length = 100) // hash 값으로 인해 length가 높아야 함.
+    @Column(nullable = false, length = 1000) // hash 값으로 인해 length가 높아야 함.
     private String password;
 
     @Column(nullable = false, length = 50)
