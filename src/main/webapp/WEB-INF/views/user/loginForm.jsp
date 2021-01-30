@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-
 <%@ include file="../layout/header.jsp"%>
 
 <div class="container">
@@ -15,12 +14,11 @@
             <input type="password" name="password" class="form-control" placeholder="Enter password" id="password">
         </div>
 
-
         <button id="btn-login" class="btn btn-primary">로그인</button>
-        <a href="https://kauth.kakao.com/oauth/authorize?client_id=caef6f67866b0652e0210a865e4c326f&redirect_uri=http://localhost:8000/auth/kakao/callback&response_type=code"><img height="38px" src="/image/kakao_login_medium.png"/></a>
+        <a href="https://kauth.kakao.com/oauth/authorize?client_id=dbc92aca6a365be879aebaa2fb1e8728&redirect_uri=http://localhost:8000/auth/kakao/callback&response_type=code"><img height="38px" src="/image/kakao_login_medium.png" /></a>
     </form>
 
-
 </div>
+
 <%@ include file="../layout/footer.jsp"%>
-<br/>
+
