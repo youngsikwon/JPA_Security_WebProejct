@@ -31,35 +31,39 @@ public class UserController {
 
 		//POST방식으로 key=value 데이터를 요청
 		//라이브러리
-		 // 1. Retorofit2
+		// 1. Retorofit2
 		//  2. OkHttp
 		//  3. RestTemplate
 		//
 
-		RestTemplate RT = new RestTemplate();
+		// HttpHeader 오브젝트 생성
+		RestTemplate rt = new RestTemplate();
+
+		// HttpHeader 오브젝트 생성
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 
 
 		//HttpHeader 오브젝트 생성
-		MultiValueMap<String, String> param = new LinkedMultiValueMap<>();
-		param.add("Content-type","authorization_code");
-		param.add("client_id","acaef6f67866b0652e0210a865e4c326f");
-		param.add("redirect_uri","http://localhost:8000/auth/kakao/callback");
-		param.add("Content-type","authorization_code");
-		param.add("code",code);
+		MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+		params.add("grant_type", "authorization_code");
+		params.add("client_id","acaef6f67866b0652e0210a865e4c326f");
+		params.add("redirect_uri","http://localhost:8000/auth/kakao/callback");
+		params.add("Content-type","authorization_code");
+		params.add("code", code);
 
 		//HttpHader와 HpptBody를 하나의 오브젝트로 담기
-		HttpEntity<MultiValueMap<String, String>> kakaoTokentRequest  =
-				new HttpEntity<>(param, headers);
+		HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest  =
+				new HttpEntity<>(params, headers);
 
-		//Http 요청하기 - Post방식으로 - 그리고 response value의 응답 받음
-		ResponseEntity<String> response = RT.exchange(
+		// Http 요청하기 - Post방식으로 - 그리고 response 변수의 응답 받음.
+		ResponseEntity<String> response = rt.exchange(
 				"https://kauth.kakao.com/oauth/token",
 				HttpMethod.POST,
-				kakaoTokentRequest,
+				kakaoTokenRequest,
 				String.class
 		);
+
 
 
 
