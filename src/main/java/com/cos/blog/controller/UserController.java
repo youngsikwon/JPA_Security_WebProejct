@@ -156,6 +156,7 @@ public class UserController {
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 
 		return "redirect:/";
+
 	}
 
 	@GetMapping("/user/updateForm")
