@@ -25,8 +25,13 @@
 
     <div class="card">
         <form>
-            <div class="card-body"><textarea class="form-control" rows="1"></textarea></div>
-            <div class="card-footer"> <button class="btn btn-primary">등록</button></div>
+            <input type="hidden" id="boardId" value="${board.id}" />
+            <div class="card-body">
+                <textarea id="reply-content" class="form-control" rows="1"></textarea>
+            </div>
+            <div class="card-footer">
+                <button type="button" id="btn-reply-save" class="btn btn-primary">등록</button>
+            </div>
         </form>
     </div>
 
@@ -34,11 +39,11 @@
             <div class="card-header">댓글 리스트</div>
             <ul id="reply--box" class="list-group" onclick="list-group">
                 <c:forEach var="reply" items="${board.replys}">
-                    <li id="reply--1" class="list-grouo-item- d-flex justify-content-between">
+                    <li id="reply--1" class="list-group-item d-flex justify-content-between">
                         <div>${reply.content}</div>
                         <div class="d-flex">
                             <div class="ui-front">작성자 : ${reply.user.username} &nbsp;</div>
-                            <button class="baede">삭제</button>
+                            <button class="badge">삭제</button>
                         </div>
                     </li>
                 </c:forEach>
