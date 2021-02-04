@@ -34,6 +34,11 @@ public class Reply {
     @CreationTimestamp
     private LocalDateTime createDate;
 
+    public void update(User user, Board board, String content){
+        setUser(user);
+        setBoard(board);
+        setContent(content);
+    }
 
 
 }
